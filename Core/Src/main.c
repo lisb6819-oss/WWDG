@@ -113,7 +113,7 @@ int main(void)
     
     HAL_Delay(100);
     HAL_WWDG_Refresh(&hwwdg);
-    LED1_TOGGLE();
+    LED0_TOGGLE();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
