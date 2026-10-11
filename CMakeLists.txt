@@ -50,7 +50,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Inc
+   ${CMAKE_CURRENT_SOURCE_DIR}/Drivers/BSP/inc
 )
 
 # Add project symbols (macros)

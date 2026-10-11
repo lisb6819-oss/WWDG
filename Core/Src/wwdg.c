@@ -22,6 +22,7 @@
 
 /* USER CODE BEGIN 0 */
 #include "led.h"
+#include "usart.h"
 /* USER CODE END 0 */
 
 WWDG_HandleTypeDef hwwdg;
@@ -79,6 +80,7 @@ void HAL_WWDG_MspInit(WWDG_HandleTypeDef* wwdgHandle)
               the HAL_WWDG_EarlyWakeupCallback could be implemented in the user file
      */
      HAL_WWDG_Refresh(hwwdg);
+
     LED1_TOGGLE();
   }
 /* USER CODE END 1 */

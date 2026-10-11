@@ -24,7 +24,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "led.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -89,15 +89,31 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
-  MX_WWDG_Init();
-  /* USER CODE BEGIN 2 */
 
+  /* USER CODE BEGIN 2 */
+  if(__HAL_RCC_GET_FLAG(RCC_FLAG_WWDGRST) != RESET)
+  {
+    printf("窗口看门狗复位\r\n");
+    __HAL_RCC_CLEAR_RESET_FLAGS();
+  }
+  else
+  {
+    printf("外部复位\r\n");
+  }
+  LED1(1);
+  HAL_Delay(300);
+  printf("请在窗口期内喂狗\r\n");
+  MX_WWDG_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    
+    HAL_Delay(100);
+    HAL_WWDG_Refresh(&hwwdg);
+    LED1_TOGGLE();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
